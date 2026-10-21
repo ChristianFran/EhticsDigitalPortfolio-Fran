@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ethics, Digital Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Alegreya:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f2f8;--bg2:#e3e5f0;--ink:#1b2036;--mute:#515975;--gold:#7a5a10;--violet:#4f31b0;--line:rgba(122,90,16,.35);--sky1:#bfcaf0;--sky2:#f6dcc2;--m1:#8f9ac6;--m2:#6c78a9;--m3:#4a5585;--castle:#2a3158;--moon:#fff6d8;--stars:0;color-scheme:light light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1722;--bg2:#14202e;--ink:#e9e6da;--mute:#a3adbb;--gold:#d4a947;--violet:#a592f5;--line:rgba(212,169,71,.3);--sky1:#080d1b;--sky2:#2a3560;--m1:#1d2b47;--m2:#131e35;--m3:#0a1222;--castle:#060b16;--moon:#f2ecd2;--stars:.9;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1722;--bg2:#14202e;--ink:#e9e6da;--mute:#a3adbb;--gold:#d4a947;--violet:#a592f5;--line:rgba(212,169,71,.3);--sky1:#080d1b;--sky2:#2a3560;--m1:#1d2b47;--m2:#131e35;--m3:#0a1222;--castle:#060b16;--moon:#f2ecd2;--stars:.9;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 1.15rem/1.65 'Alegreya',Georgia,serif}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+h1,h2,h3{font-family:'Almendra',Georgia,serif;font-weight:700;margin:0}
+.wrap{max-width:60rem;margin:0 auto;padding:5rem 1.5rem}
+.hero{position:relative;overflow:hidden;min-height:92vh;background:linear-gradient(var(--sky1),var(--sky2));display:flex;flex-direction:column}
+.hero nav{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem 1.5rem;padding:1.5rem;max-width:60rem;width:100%;margin:0 auto}
+.hero nav b{font-family:'Almendra',serif;font-size:1.3rem}
+.hero nav div{display:flex;gap:1.4rem}
+.hero nav a{text-decoration:none;border-bottom:1px solid transparent}
+.hero nav a:hover{border-color:var(--gold)}
+.intro{position:relative;z-index:2;max-width:60rem;width:100%;margin:0 auto;padding:3rem 1.5rem}
+.intro h1{font-size:clamp(3.2rem,11vw,7.5rem);line-height:.95;letter-spacing:.01em}
+.intro p{max-width:32rem;font-size:1.3rem;margin:1.5rem 0 2rem}
+.btn{display:inline-block;padding:.7rem 1.5rem;border:1px solid var(--gold);text-decoration:none;border-radius:2px 14px 2px 14px;margin:0 .75rem .75rem 0}
+.btn.fill{background:var(--gold);color:var(--bg);font-weight:700}
+.btn:hover{border-color:var(--violet)}
+.scene{position:absolute;left:0;bottom:0;width:100%;height:58%;z-index:1}
+.tw{animation:tw 3.5s ease-in-out infinite}.tw:nth-child(2n){animation-delay:1.2s}.tw:nth-child(3n){animation-delay:2.3s}
+.win{animation:glow 4s ease-in-out infinite}
+@keyframes tw{50%{opacity:.2}}
+@keyframes glow{50%{opacity:.55}}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.intro h1,.intro p,.intro .cta{animation:rise .9s ease-out both}
+.intro p{animation-delay:.2s}.intro .cta{animation-delay:.4s}
+h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:.5rem}
+.lede{color:var(--mute);max-width:36rem;margin:0 0 2.5rem}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.25rem 1rem;padding:1.3rem 0}
+summary::-webkit-details-marker{display:none}
+summary h3{font-size:1.9rem}
+summary h3::before{content:"✦ ";color:var(--gold)}
+details[open] summary h3::before{content:"✧ "}
+summary:hover h3{color:var(--violet)}
+.meta{color:var(--mute);font-size:1rem}
+.tale{padding:0 0 1.6rem 2rem;max-width:42rem}
+.tale p{margin:0 0 1rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+.tags li{border:1px solid var(--line);padding:.1rem .7rem;font-size:.95rem;border-radius:99px}
+.book{background:var(--bg2)}
+.schools{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.school{border-left:2px solid var(--gold);padding-left:1.25rem}
+.school h3{font-size:1.7rem}
+.school p{margin:.25rem 0 1rem;color:var(--mute);font-size:1rem}
+.school ul{list-style:none;margin:0;padding:0}
+.school li{display:flex;justify-content:space-between;gap:1rem;padding:.3rem 0;border-bottom:1px dotted var(--line)}
+.dots{color:var(--gold);letter-spacing:.12em;white-space:nowrap}
+.chron{list-style:none;margin:0;padding:0 0 0 1.75rem;border-left:2px solid var(--line)}
+.chron li{position:relative;padding-bottom:2rem;max-width:40rem}
+.chron li::before{content:"";position:absolute;left:calc(-1.75rem - 7px);top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--gold)}
+.chron b{color:var(--violet);font-family:'Almendra',serif;font-size:1.3rem;margin-right:.5rem}
+.chron strong{display:block;font-size:1.25rem}
+.chron span{color:var(--mute)}
+.raven{text-align:center;background:var(--bg2)}
+.raven h2{font-size:clamp(2.2rem,7vw,4.2rem)}
+.raven p{max-width:32rem;margin:1rem auto 2rem}
+footer{text-align:center;color:var(--mute);font-size:.95rem;padding:2rem 1.5rem}
+@media (max-width:720px){.schools{grid-template-columns:1fr}.tale{padding-left:0}.hero{min-height:88vh}.scene{height:42%}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+
+/* ---- animated theme ---- */
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.aurora{position:absolute;inset:-20%;z-index:0;pointer-events:none;filter:blur(30px);background:radial-gradient(40% 35% at 25% 30%,color-mix(in srgb,var(--violet) 38%,transparent),transparent 70%),radial-gradient(35% 30% at 75% 20%,color-mix(in srgb,var(--gold) 30%,transparent),transparent 70%);animation:aur 20s ease-in-out infinite alternate}
+@keyframes aur{to{transform:translate(8%,6%) rotate(8deg) scale(1.12)}}
+.halo{transform-box:fill-box;transform-origin:center;animation:halo 6s ease-in-out infinite}
+@keyframes halo{50%{transform:scale(1.25);opacity:.22}}
+.cloud{animation:drift 80s linear infinite}.c2{animation-duration:120s;animation-delay:-50s}
+@keyframes drift{from{transform:translateX(-250px)}to{transform:translateX(1450px)}}
+.shoot{opacity:0;animation:shoot 11s linear 3s infinite}
+@keyframes shoot{0%{transform:translate(300px,40px);opacity:0}3%{opacity:1}12%{transform:translate(640px,175px);opacity:0}100%{transform:translate(640px,175px);opacity:0}}
+.bird{animation:fly 28s linear infinite}
+.bird path{transform-box:fill-box;transform-origin:center;animation:flap .5s ease-in-out infinite alternate}
+@keyframes fly{from{transform:translate(-80px,170px)}50%{transform:translate(600px,115px)}to{transform:translate(1300px,190px)}}
+@keyframes flap{to{transform:scaleY(.4)}}
+.mist{animation:sway 14s ease-in-out infinite alternate}
+@keyframes sway{from{transform:translateX(-70px)}to{transform:translateX(70px)}}
+.intro h1{background:linear-gradient(100deg,var(--ink) 35%,var(--gold) 50%,var(--ink) 65%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:rise .9s ease-out both,sheen 8s ease-in-out 1.2s infinite}
+@keyframes sheen{from{background-position:100% 0}to{background-position:-100% 0}}
+.book,.raven{background:linear-gradient(115deg,var(--bg2),color-mix(in srgb,var(--violet) 15%,var(--bg2)),var(--bg2));background-size:300% 300%;animation:flow 16s ease-in-out infinite}
+@keyframes flow{50%{background-position:100% 50%}}
+/* ---- animated buttons and links ---- */
+.btn{position:relative;overflow:hidden;isolation:isolate;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease,border-radius .35s ease}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);transform:translateX(-130%)}
+.btn:hover::before{transform:translateX(130%);transition:transform .7s ease}
+.btn:hover{transform:translateY(-3px) rotate(-1deg);border-radius:14px 2px 14px 2px;box-shadow:0 10px 24px -8px var(--gold)}
+.btn:active{transform:translateY(0) scale(.96)}
+.btn.fill{animation:pulse 2.8s ease-out infinite}
+.btn.fill:hover{animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--gold) 55%,transparent)}70%,100%{box-shadow:0 0 0 14px transparent}}
+.hero nav a{position:relative}
+.hero nav a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .3s ease}
+.hero nav a:hover::after{transform:scaleX(1)}
+.hero nav a:hover{border-color:transparent}
+summary h3::before{display:inline-block;transition:transform .4s ease}
+details[open] summary h3::before{transform:rotate(90deg) scale(1.25)}
+details[open] .tale{animation:unroll .45s ease both}
+@keyframes unroll{from{opacity:0;transform:translateY(-10px)}}
+.tags li{transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.tags li:hover{transform:translateY(-2px);border-color:var(--gold);background:color-mix(in srgb,var(--gold) 15%,transparent)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.bird,.cloud{display:none}}
+.bgm{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:10;display:flex;align-items:center;gap:.6rem;padding:.6rem 1.1rem;font:700 1rem 'Alegreya',Georgia,serif;color:var(--ink);background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--gold);border-radius:2px 14px 2px 14px;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-radius .35s ease}
+.bgm:hover{transform:translateY(-3px);border-radius:14px 2px 14px 2px;box-shadow:0 10px 24px -8px var(--gold)}
+.bgm:active{transform:scale(.96)}
+.bgm:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+.eq{display:flex;align-items:flex-end;gap:2px;height:14px}
+.eq i{width:3px;height:4px;background:var(--gold);border-radius:1px}
+.bgm.on .eq i{animation:eq .8s ease-in-out infinite alternate}
+.bgm.on .eq i:nth-child(2){animation-delay:.25s}
+.bgm.on .eq i:nth-child(3){animation-delay:.5s}
+@keyframes eq{from{height:3px}to{height:14px}}
+#world{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+#fx{transition:opacity .6s}
+main .wrap{background:color-mix(in srgb,var(--bg) 46%,transparent);text-shadow:0 0 8px var(--bg),0 1px 3px var(--bg)}
+.book,.raven{background:none;animation:none}
+footer{background:color-mix(in srgb,var(--bg) 55%,transparent);text-shadow:0 0 8px var(--bg)}
+#era{position:fixed;left:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:10;display:flex;flex-direction:column;font-family:'Almendra',Georgia,serif;line-height:1.3;color:var(--ink);background:color-mix(in srgb,var(--bg) 82%,transparent);border-left:2px solid var(--gold);padding:.35rem .8rem;pointer-events:none}
+#era span{font:500 .85rem 'Alegreya',Georgia,serif;color:var(--mute)}
+html:root[data-realm="war"]{--gold:#d9611f;--violet:#e0483f}
+html:root[data-realm="ruin"]{--gold:#9a8a6a;--violet:#8a94ab}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<canvas id="world" aria-hidden="true"></canvas>
+<div id="era" aria-hidden="true"><b>Age of Peace</b><span>Year 400</span></div>
+<button id="bgm" class="bgm" type="button" aria-pressed="false" aria-label="Toggle background music"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span class="lbl">Play music</span></button>
+<header class="hero">
+  <div class="aurora" aria-hidden="true"></div>
+  <nav aria-label="Main">
+    <b>Christian Jeorge S. Fran</b>
+    <div><a href="#quests">Quests</a><a href="#spellbook">Spellbook</a><a href="#chronicle">Chronicle</a><a href="#raven">Contact</a></div>
+  </nav>
+  <div class="intro">
+    <h1>Christian<br>Jeorge S. Fran</h1>
+    <p>Digital artificer. I forge websites, apps, and design systems that people want to wander through.</p>
+    <div class="cta"><a class="btn fill" href="#quests">Read the quests</a><a class="btn" href="#raven">Send a raven</a></div>
+  </div>
+  <svg class="scene" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g fill="var(--moon)" opacity="var(--stars)">
+      <circle class="tw" cx="90" cy="60" r="1.8"/><circle class="tw" cx="210" cy="140" r="1.4"/><circle class="tw" cx="330" cy="40" r="2"/><circle class="tw" cx="450" cy="120" r="1.5"/><circle class="tw" cx="560" cy="60" r="1.8"/><circle class="tw" cx="680" cy="150" r="1.4"/><circle class="tw" cx="770" cy="50" r="2"/><circle class="tw" cx="1040" cy="80" r="1.6"/><circle class="tw" cx="1120" cy="170" r="1.5"/><circle class="tw" cx="150" cy="230" r="1.5"/><circle class="tw" cx="1000" cy="200" r="1.8"/>
+    </g>
+    <circle class="halo" cx="920" cy="120" r="80" fill="var(--moon)" opacity=".12"/>
+    <circle cx="920" cy="120" r="46" fill="var(--moon)"/>
+    <g class="cloud" fill="var(--moon)" opacity=".1"><ellipse cx="0" cy="110" rx="120" ry="14"/><ellipse cx="60" cy="98" rx="80" ry="12"/></g>
+    <g class="cloud c2" fill="var(--moon)" opacity=".08"><ellipse cx="0" cy="210" rx="150" ry="16"/><ellipse cx="-50" cy="198" rx="90" ry="12"/></g>
+    <line class="shoot" x1="0" y1="0" x2="-80" y2="-30" stroke="var(--moon)" stroke-width="2" stroke-linecap="round"/>
+    <g class="bird"><path d="M0 0 Q9 -9 18 0 Q27 -9 36 0 Q27 -4 18 4 Q9 -4 0 0Z" fill="var(--castle)"/></g>
+    <path fill="var(--m1)" d="M0 330 L120 250 L220 310 L360 200 L500 300 L640 230 L780 320 L920 240 L1060 310 L1200 260 L1200 500 L0 500Z"/>
+    <path fill="var(--m2)" d="M0 400 L150 330 L260 380 L420 300 L560 390 L700 340 L860 400 L1000 330 L1200 400 L1200 500 L0 500Z"/>
+    <g fill="var(--castle)" transform="translate(740 300)">
+      <rect x="0" y="60" width="30" height="75"/><rect x="50" y="30" width="26" height="105"/><rect x="100" y="70" width="30" height="65"/><rect x="30" y="92" width="70" height="43"/>
+      <polygon points="-4,60 15,32 34,60"/><polygon points="46,30 63,-4 80,30"/><polygon points="96,70 115,44 134,70"/>
+      <rect class="win" x="59" y="58" width="8" height="13" fill="var(--gold)"/>
+    </g>
+    <g class="mist" fill="var(--moon)" opacity=".1"><ellipse cx="450" cy="425" rx="260" ry="16"/><ellipse cx="900" cy="438" rx="300" ry="18"/></g>
+    <path fill="var(--m3)" d="M0 500 L0 450 Q300 415 600 438 Q800 450 1000 425 L1200 440 L1200 500Z"/>
+  </svg>
+</header>
+
+<main>
+<section id="quests" class="wrap">
+  <h2>Quests completed<br>Ethics Lessons</h2>
+  <p class="lede">Six commissions from the past Semester. Open a scroll to read the tale.</p>
+  <details>
+    <summary><h3>The Emberfall Atlas:<br>EVERYDAY DECISIONS AND MORAL RESPONSIBILITY</h3><span class="meta">Lesson 1</span></summary>
+    <div class="tale"><p>Think of moral standards as a compass and non-moral standards as a set of house rules. A compass points toward what is right and wrong, and it matters whether or not anyone is watching. House rules, like dress codes, preferred routines, or the “right” way to load a dishwasher, keep daily life running smoothly, but breaking one doesn’t make you a bad person. A moral dilemma is what happens when the compass seems to point in two directions at once, like having to choose between telling a painful truth and protecting someone you care about. Either path helps someone and costs someone else, which is why the decision feels heavy. Ethical thinking is the habit of stopping to read the compass carefully instead of just taking the easiest road. It means asking why you’re choosing what you’re choosing, who will feel the effects, and where each option is likely to lead.</p>
+    <ul class="tags"><li>Understanding</li><li>about</li><li>The Lesson</li></ul></div>
+  </details>
+  <details>
+    <summary><h3>Lanternwick.<br>FREEDOM,FAIRNESS,AND THE CHOICES WE MAKE</h3><span class="meta">Lesson 2</span></summary>
+    <div class="tale"><p>Imagine a moral decision as a trial held inside your own head. Freedom is your right to act as you see fit, since no one can be judged for a choice they never had the chance to make. Responsibility is the verdict that follows: once you choose, you answer for what your choice causes, whether you meant to cause it or not. Reason acts as the investigator, gathering facts and testing assumptions so the case isn’t decided on a hunch or a mood. Impartiality is the judge’s blindfold, the discipline of treating a friend, a stranger, and yourself by the same standard. When all four are present, the outcome is not just a choice that happens to suit you but a decision you could defend to anyone who asks. This also explains why some cases are easy and others are not: the more people involved, and the more angles from which the situation can be seen, the more evidence there is to weigh before the verdict feels fair.</p>
+    <ul class="tags"><li>Understanding</li><li>about</li><li>The Lesson</li></ul></div>
+  </details>
+  <details>
+    <summary><h3>Runehand:<br>The Role of Culture in Shaping Values</h3><span class="meta">Lesson 3</span></summary>
+    <div class="tale"><p>Think of a person as a plant grown in a particular garden. The soil, climate, and gardeners around it, which stand for family, community, and culture, shape how it grows, which direction it leans, and what it learns to reach for. A plant raised in one garden may spread wide to share space, while another grows tall and upright, and neither is wrong, just shaped by different conditions. That is why two people can face the same situation and respond so differently: each is drawing on what their own garden taught them to expect, whether that means how to show respect, how to settle a disagreement, or what they owe to others. But a person is not only a plant. Unlike a plant, a person can look at the garden that raised them, decide which lessons are worth keeping, and choose to grow in a new direction.</p>
+    <ul class="tags"><li>Understanding</li><li>about</li><li>The Lesson</li></ul></div>
+  </details>
+  <details>
+    <summary><h3>The Moonlit Ledger:<br>Cultural Relativism: Understanding Without Blind Acceptance</h3><span class="meta">Lesson 4</span></summary>
+    <div class="tale"><p>Think of a culture as a language. To understand what a phrase means, you have to know the grammar, history, and context behind it. A word that sounds rude in one language may be polite in another, and a listener who assumes their own language is the only “correct” one will keep misreading everyone else. Cultural relativism is the habit of learning the grammar before passing judgment, and it builds real understanding between speakers of different tongues. But fluency in a language doesn’t mean everything said in it is true or kind. A cruel sentence is still cruel in any dialect, and “that’s just how we say it” doesn’t make it harmless. Understanding where a practice comes from is the first step, not the last. The next step is asking whether it treats people fairly and respects their dignity.</p>
+    <ul class="tags"><li>Understanding</li><li>about</li><li>The Lesson</li></ul></div>
+  </details>
+  <details>
+    <summary><h3>Wyrmwatch:<br>Filipino Culture, Identity, and Positive Change</h3><span class="meta">Lesson 5</span></summary>
+    <div class="tale"><p>Think of Filipino moral identity as a recipe passed down through generations. Grandmothers, parents, neighbors, and festivals all add something to it, such as the habit of helping others, the care shown to elders, the practice of saying thank you, and the instinct to keep the family close. Shared meals made from this recipe build trust, because everyone at the table knows what to expect from one another. But a recipe is more than its ingredient list, and how it is cooked matters. Take respect: following the recipe well means treating people with dignity, not just doing what you’re told without a second thought. Even a beloved recipe can be adjusted when someone notices it is too heavy, too bitter, or leaves someone out. Keeping the dish alive doesn’t mean cooking it exactly the same way forever. It means tasting honestly, keeping what nourishes, and changing what no longer serves the people at the table..</p>
+    <ul class="tags"><li>Understanding</li><li>about</li><li>The Lesson</li></ul></div>
+  </details>
+  <details>
+    <summary><h3>The Wandering Folio:<br>Careful Thinking Through Ethical Examples</h3><span class="meta">Lesson 6</span></summary>
+    <div class="tale"><p>A reading site for a fantasy author's serial novel. Chapters unfold beside illustrated maps, and readers pick up where they left off on any device. Newsletter signups tripled over the run of the serial.</p>
+    <ul class="tags"><li>Understanding</li><li>about</li><li>The Lesson</li></ul></div>
+  </details>
+</section>
+
+<section id="spellbook" class="book">
+  <div class="wrap">
+    <h2>The spellbook</h2>
+    <p class="lede">Three schools of craft, with my level of mastery in each spell.</p>
+    <div class="schools">
+      <div class="school"><h3>Arcane Arts</h3><p>Foundations of moral thinking</p><ul>
+        <li>Moral standards<span class="dots" aria-label="5 of 5">●●●●●</span></li>
+        <li>Non-moral standards<span class="dots" aria-label="5 of 5">●○○○○</span></li>
+        <li>Moral dilemmas<span class="dots" aria-label="4 of 5">●●●○○</span></li>
+        <li>Ethical thinking<span class="dots" aria-label="4 of 5">●●●●○</span></li>
+        <li>Weighing consequences<span class="dots" aria-label="3 of 5">●●●●○</span></li></ul></div>
+      <div class="school"><h3>Alchemy</h3><p>The elements of a justified decision</p><ul>
+        <li>Freedom<span class="dots" aria-label="4 of 5">●●●●○</span></li>
+        <li>Responsibility<span class="dots" aria-label="4 of 5">●●●●○</span></li>
+        <li>Reason<span class="dots" aria-label="3 of 5">●●●○○</span></li>
+        <li>Impartiality<span class="dots" aria-label="3 of 5">●●●○○</span></li>
+        <li>Seeing a problem from different levels and angles<span class="dots" aria-label="3 of 5">●●●○○</span></li></ul></div>
+      <div class="school"><h3>Illusion</h3><p>Culture and identity</p><ul>
+        <li> Cultural influence on behavior<span class="dots" aria-label="5 of 5">●●●●●</span></li>
+        <li>Cultural relativism<span class="dots" aria-label="5 of 5">●●●●●</span></li>
+        <li>Filipino moral identity<span class="dots" aria-label="4 of 5">●●●●○</span></li>
+        <li>Respect with dignity<span class="dots" aria-label="4 of 5">●●●●●</span></li>
+        <li>Reflecting on and changing traditions<span class="dots" aria-label="3 of 5">●●●●○</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="chronicle" class="wrap">
+  <h2>The chronicle</h2>
+  <p class="lede">Where the road has led so far. (REFLECTION)</p>
+  <ol class="chron">
+    <li><b>Lesson 1</b><strong>Reflection</strong><span>When I think about moral standards as a compass, I realize how often I treat ethical choices like house rules. I follow what is convenient, what others expect, or what keeps things peaceful, without asking whether it is actually right. House rules are easy to spot because someone usually reminds us when we break them. The compass is harder, because it only works if I choose to check it, even when nobody is watching.
+
+The idea of a moral dilemma made me think about times when two good things pulled against each other. Being honest with a friend can hurt them, while staying silent can protect their feelings but leave them without the truth. In moments like these, I used to look for the answer that would cause the least discomfort for me. Now I see that this is the easiest road, not necessarily the right one. Every choice helps someone and costs someone else, so I owe it to the people involved to slow down and think.
+
+Ethical thinking, for me, is becoming a habit of asking three questions before I act: Why am I choosing this? Who will feel the effects? Where is this likely to lead? These questions do not make hard decisions painless, but they make them more honest. They remind me that my choices reach beyond myself.
+
+Going forward, I want to practice reading the compass more carefully, especially in small, everyday moments, because those are where my character is quietly built. A compass is only useful when I am willing to follow where it points, even when that path is harder.</span></li>
+    <li><b>Lesson 2</b><strong>Reflection</strong><span>I used to think of a moral decision as something that happens in a split second, a gut feeling followed by an action. The idea of a trial held inside my own head changed that for me. It showed me that a good decision has several parts, and that skipping any of them makes the verdict less fair.
+
+Freedom reminds me that my choices are truly mine. No one can be blamed for something they had no chance to choose, but when I do have a choice, I cannot hide behind “that’s just how things are.” Responsibility is what follows. Once I act, I answer for what happens, even the consequences I did not intend. This is uncomfortable, but it is also what makes my choices matter.
+
+Reason is the part I most often neglect. When I am upset or in a hurry, I tend to decide based on a mood or a hunch instead of acting like an investigator who checks the facts and questions assumptions. Impartiality is even harder. It is easy to be generous with myself and with the people I like, and much harder to hold a friend, a stranger, and myself to the same standard. The image of the judge’s blindfold challenges me to ask whether I would make the same decision if the people involved were swapped.
+
+What I take from this is that a good decision is one I could defend to anyone who asks, not just one that happens to suit me. It also helps me understand why some situations feel so difficult: when many people are affected and the problem looks different from every angle, there is simply more evidence to weigh. Going forward, I want to slow down, gather the facts, and judge as fairly as I would want to be judged.</span></li>
+    <li><b>Lesson 3</b><strong>Reflection</strong><span>When I picture myself as a plant grown in a particular garden, I start to notice how much of who I am was shaped before I ever made a choice. My family, my community, and my culture were the soil, the climate, and the gardeners. They taught me how to show respect, how to handle disagreements, and what I owe to the people around me. Many of my habits feel natural only because they were practiced around me for so long.
+
+This idea helps me understand why people react so differently to the same situation. When someone responds in a way I would not, my first instinct is sometimes to think they are wrong. But the garden analogy reminds me that they may simply have grown in different conditions, learning different expectations about what is polite, fair, or expected. A plant that spreads wide and a plant that grows tall are not competing to be right. They are responding to what they were given. Remembering this makes me more patient and more curious about other people.
+
+Still, the part that stays with me most is that I am not only a plant. A plant cannot examine its garden, but I can. I can look at the lessons I was raised with and ask which ones deserve to be kept because they help me treat others well, and which ones I should question because they no longer serve me or the people around me. Doing this does not mean rejecting where I come from. It means taking responsibility for who I am becoming instead of simply continuing to grow the way I was shaped.
+
+Going forward, I want to appreciate the garden that raised me while staying willing to grow beyond it. I want to understand others by asking where they grew, and understand myself by asking which parts of my growth I want to keep reaching toward.</span></li>
+    <li><b>Lesson 4</b><strong>Reflection</strong><span>I never chose my garden. Long before I could decide anything for myself, my family, neighbors, and culture were already shaping the way I lean. They taught me when to speak and when to stay quiet, how to treat people older than me, and what it means to show up for others. These lessons feel so natural that I rarely notice they were taught at all.
+
+Seeing myself this way changes how I look at people who act differently from me. A classmate who argues openly, or a friend who handles conflict by staying silent, is not necessarily being rude or weak. They may be leaning in the direction their own garden trained them to lean. Before I judge, I can ask a better question: What did they grow up learning to expect? That question makes me slower to criticize and quicker to understand.
+
+But the analogy also challenges me. A plant cannot decide to move toward better light, yet I can. I can look honestly at what I was given and sort it out. Some lessons deserve to be kept and watered, like generosity, gratitude, and caring for family. Others may need pruning, such as habits of staying silent when something is unfair, or following a custom only because “that’s how it’s always been done.” Pruning is not an act of betrayal toward the garden. It is part of caring for it.
+
+What I take from this is that my background explains me, but it does not excuse me. I am responsible not only for what I received but also for what I do with it. Going forward, I want to be grateful for the garden that raised me, curious about the gardens that raised others, and willing to take part in tending who I am becoming.</span></li>
+    <li><b>Lesson 5</b><strong>Reflection</strong><span>I used to believe that when someone did something that seemed strange or even rude to me, the problem was with them. The idea of culture as a language changed that. A phrase that sounds harsh in my language may be a sign of warmth in another, and if I assume my way of speaking is the only correct one, I will keep misreading the people around me. Most of my quick judgments, I realize, came from not knowing the grammar.
+
+Cultural relativism, as I now understand it, is the habit of learning that grammar before passing judgment. It asks me to wonder about the history and context behind a custom, a gesture, or a way of showing respect. When I do this, I find that practices that once looked unfamiliar often make sense, and I become more patient with people who grew up speaking a different cultural language than mine. That kind of understanding is what allows people from different backgrounds to actually listen to each other.
+
+At the same time, this idea warns me not to confuse understanding with approval. Being fluent in a language does not make everything said in it true or kind. A cruel sentence is still cruel in any dialect, and “that’s just how we do things” is not enough to make a harmful practice acceptable. This applies to my own culture as well as to others. It is easy to be critical of unfamiliar customs while excusing my own simply because they are familiar.
+
+What I take from this is that understanding is the first step, not the last. After asking where a practice comes from, I also need to ask whether it treats people fairly and respects their dignity. Going forward, I want to listen before I judge, and reflect before I excuse. I want to be someone who is curious enough to learn another culture’s grammar and honest enough to question any sentence that hurts people, no matter whose language it is spoken in.</span></li>
+    <li><b>Lesson 6</b><strong>Reflection</strong><span>When I think of Filipino moral identity as a recipe, I picture the kitchens and tables where I first learned what it means to be a good person. No one handed me a written list of values. Instead, I absorbed them by watching grandmothers prepare food for neighbors, parents set aside the best portion for guests, and relatives gather during fiestas and holidays. Helping others, caring for elders, saying thank you, and keeping the family close were never lectures. They were flavors I grew up with, so familiar that I rarely noticed they were there.
+
+What I appreciate most about this image is how it explains trust. When everyone at the table has been raised on the same recipe, there is a quiet confidence that people will look out for one another. That sense of belonging is something I do not want to take for granted. It is a gift that took generations of ordinary people, doing small acts of care, to create.
+
+Still, the analogy reminds me that a recipe depends on how it is cooked. Respect is the clearest example. I have seen how respect for elders can be shown through warmth, listening, and care, but I have also seen it turn into silence, where people stay quiet even when something is unfair because speaking up feels disrespectful. Following the recipe well means treating people with dignity, and that includes the person who is being asked to obey. Respect that cannot tolerate a polite question is not the full recipe.
+
+This is why the idea of adjusting a beloved dish matters to me. Changing a recipe does not mean I am insulting the cook who taught me. It can be the most faithful way of honoring her, because she, too, wanted the people at her table to be fed well. If a tradition leaves someone out, weighs too heavily on one person, or has grown bitter over time, then caring for it means noticing and adjusting.
+
+Going forward, I want to keep what nourishes: generosity, gratitude, closeness, and care for elders. I also want to taste honestly, asking whether everyone at the table is being treated with dignity. That is how I hope to carry the recipe forward, not as a copy of the past, but as a living dish that my family and community can still gather around.</span></li>
+  </ol>
+</section>
+
+<section id="raven" class="raven">
+  <div class="wrap">
+    <h2>Have a quest in mind?</h2>
+    <p>Send a raven to notify me. Tell me what you are building and when you need it.</p>
+    <a class="btn fill" href="mailto:cf5673412@gmail.com">cf5673412@gmail.com</a>
+  </div>
+</section>
+</main>
+<footer>Christian Jeorge S. Fran - Block 1/ 2nd Year, Digital Artificer. Forged by hand.</footer>
+<script>
+(()=>{
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+const c=document.getElementById('fx'),x=c.getContext('2d'),dpr=Math.min(devicePixelRatio||1,2);
+let W,H,P=[],g;
+const col=()=>g=getComputedStyle(document.documentElement).getPropertyValue('--gold').trim();
+const mote=init=>({x:Math.random()*W,y:init?Math.random()*H:H+10,r:Math.random()*2+.8,s:Math.random()*.5+.2,p:Math.random()*6.28,w:Math.random()*.02+.005});
+function size(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);P=Array.from({length:Math.round(Math.min(70,W/18))},()=>mote(true));col()}
+function tick(){
+  x.clearRect(0,0,W,H);
+  for(const m of P){
+    m.y-=m.s;m.p+=m.w;m.x+=Math.sin(m.p)*.4;
+    if(m.y<-10)Object.assign(m,mote(false));
+    x.globalAlpha=.35+.35*Math.sin(m.p*3);
+    x.fillStyle=g;x.shadowColor=g;x.shadowBlur=10;
+    x.beginPath();x.arc(m.x,m.y,m.r,0,6.283);x.fill();
+  }
+  requestAnimationFrame(tick);
+}
+size();addEventListener('resize',size);
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',col);
+requestAnimationFrame(tick);
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('main details,.school,.chron li,.raven .wrap').forEach((el,i)=>{el.classList.add('rv');el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
+}
+})();
+</script>
+<script>
+(()=>{
+const btn=document.getElementById('bgm'),lbl=btn.querySelector('.lbl');
+let ctx,master,verb,bus,timer,on=false,chordI=0,nextChord=0,nextNote=0,nextDrum=0,beat=0,realm=0,idx=4;
+const hz=m=>440*Math.pow(2,(m-69)/12);
+// Dm, Bb, C, Am as MIDI notes (D Dorian feel)
+const CH=[[50,57,62,65],[46,53,58,62],[48,55,60,64],[45,52,57,60]];
+const S=[62,64,65,67,69,71,72,74,76,77,79];
+function impulse(){const n=Math.floor(ctx.sampleRate*3.2),b=ctx.createBuffer(2,n,ctx.sampleRate);for(let c=0;c<2;c++){const d=b.getChannelData(c);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,2.5)}return b}
+function pluck(t,m,v){
+  const o=ctx.createOscillator(),o2=ctx.createOscillator(),g=ctx.createGain();
+  o.type='triangle';o2.type='sine';o.frequency.value=hz(m);o2.frequency.value=hz(m+12);
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+2.4);
+  o.connect(g);o2.connect(g);g.connect(bus);
+  o.start(t);o2.start(t);o.stop(t+2.5);o2.stop(t+2.5);
+}
+const RM=[
+  {ch:CH,sc:S,gaps:[.6,.6,.9,1.2,1.8],p:.78,d:8,pv:.025,fl:700},
+  {ch:[[38,45,50,53],[39,46,51,55],[43,50,55,58],[38,45,50,53]],sc:[62,63,65,67,69,70,72,74,75,77],gaps:[.25,.25,.25,.5],p:.9,d:4,pv:.04,fl:1400},
+  {ch:[[45,52,57,60],[41,48,53,57],[38,45,50,53],[45,52,57,59]],sc:[69,72,74,76,77,79,81],gaps:[2.5,3.5,5],p:.55,d:12,pv:.02,fl:500}
+];
+function mkBus(){const b=ctx.createGain();b.connect(master);b.connect(verb);return b}
+function hit(t,snare){
+  const g=ctx.createGain();g.connect(bus);
+  if(snare){
+    const n=Math.floor(ctx.sampleRate*.2),b=ctx.createBuffer(1,n,ctx.sampleRate),dd=b.getChannelData(0);
+    for(let i=0;i<n;i++)dd[i]=Math.random()*2-1;
+    const s=ctx.createBufferSource(),f=ctx.createBiquadFilter();s.buffer=b;f.type='bandpass';f.frequency.value=1600;
+    g.gain.setValueAtTime(.3,t);g.gain.exponentialRampToValueAtTime(.001,t+.2);s.connect(f);f.connect(g);s.start(t);
+  }else{
+    const o=ctx.createOscillator();o.frequency.setValueAtTime(130,t);o.frequency.exponentialRampToValueAtTime(38,t+.16);
+    g.gain.setValueAtTime(.7,t);g.gain.exponentialRampToValueAtTime(.001,t+.3);o.connect(g);o.start(t);o.stop(t+.32);
+  }
+}
+function pad(t,notes,d,v,fl){
+  const a=Math.min(2.5,d/3);
+  notes.forEach(m=>[-6,6].forEach(dt=>{
+    const o=ctx.createOscillator(),f=ctx.createBiquadFilter(),g=ctx.createGain();
+    o.type='sawtooth';o.frequency.value=hz(m);o.detune.value=dt;f.type='lowpass';f.frequency.value=fl;
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+a);g.gain.setValueAtTime(v,t+d-.5);g.gain.linearRampToValueAtTime(0,t+d+a);
+    o.connect(f);f.connect(g);g.connect(bus);o.start(t);o.stop(t+d+a+.1);
+  }));
+}
+function sched(){
+  const now=ctx.currentTime,r=RM[realm];
+  while(nextChord<now+1.2){pad(nextChord,r.ch[chordI%4],r.d,r.pv,r.fl);chordI++;nextChord+=r.d}
+  while(nextNote<now+1.2){
+    if(Math.random()<r.p){idx=Math.max(0,Math.min(r.sc.length-1,idx+Math.floor(Math.random()*5)-2));pluck(nextNote,r.sc[idx]+(Math.random()<.1?12:0),.11+Math.random()*.06+(realm===1?.07:0))}
+    nextNote+=r.gaps[Math.floor(Math.random()*r.gaps.length)];
+  }
+  if(realm===1)while(nextDrum<now+1.2){hit(nextDrum,beat%2===1);beat++;nextDrum+=.5}
+}
+// called by the scrolling world: 0 peace, 1 war, 2 ruin
+window.setRealm=r=>{
+  if(r===realm)return;realm=r;
+  if(!ctx||!bus)return;
+  const t=ctx.currentTime;
+  bus.gain.cancelScheduledValues(t);bus.gain.setValueAtTime(bus.gain.value,t);bus.gain.linearRampToValueAtTime(0,t+1.2);
+  bus=mkBus();bus.gain.setValueAtTime(0,t);bus.gain.linearRampToValueAtTime(1,t+.8);
+  chordI=0;idx=2;nextChord=nextNote=nextDrum=t+.15;
+};
+function start(){
+  if(!ctx){
+    ctx=new (window.AudioContext||window.webkitAudioContext)();
+    master=ctx.createGain();master.gain.value=0;master.connect(ctx.destination);
+    verb=ctx.createConvolver();verb.buffer=impulse();
+    const wet=ctx.createGain();wet.gain.value=.8;verb.connect(wet);wet.connect(master);bus=mkBus();
+  }
+  ctx.resume();
+  const t=ctx.currentTime;
+  nextChord=nextNote=nextDrum=t+.1;
+  master.gain.cancelScheduledValues(t);master.gain.setValueAtTime(master.gain.value,t);master.gain.linearRampToValueAtTime(.55,t+2);
+  sched();timer=setInterval(sched,150);
+}
+function stop(){
+  clearInterval(timer);
+  const t=ctx.currentTime;
+  master.gain.cancelScheduledValues(t);master.gain.setValueAtTime(master.gain.value,t);master.gain.linearRampToValueAtTime(0,t+1);
+  setTimeout(()=>{if(!on)ctx.suspend()},1200);
+}
+function setUI(){
+  const run=on&&ctx&&ctx.state==='running';
+  btn.classList.toggle('on',!!run);btn.setAttribute('aria-pressed',on);
+  lbl.textContent=!on?'Play music':run?'Music on':'Tap anywhere for music';
+}
+// Browsers block sound until a tap, click or key press, so a blocked start is resumed on the first one
+const unlock=e=>{if(btn.contains(e.target))return;if(on&&ctx&&ctx.state!=='running')ctx.resume().catch(()=>{})};
+['pointerdown','pointerup','touchend','click','keydown'].forEach(ev=>addEventListener(ev,unlock,{passive:true}));
+btn.addEventListener('click',()=>{
+  if(on&&ctx&&ctx.state!=='running'){ctx.resume();return}
+  on=!on;
+  try{on?start():stop()}catch(e){on=false}
+  setUI();
+});
+try{start();on=true;ctx.addEventListener('statechange',setUI)}catch(e){on=false}
+setUI();
+})();
+</script>
+<script>
+(()=>{
+const cv=document.getElementById('world'),x=cv.getContext('2d'),root=document.documentElement,fx=document.getElementById('fx'),eb=document.querySelector('#era b'),es=document.querySelector('#era span');
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,dpr=Math.min(devicePixelRatio||1,1.5);
+const rnd=(a,b)=>a+Math.random()*(b-a),cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),sm=(v,a,b)=>{v=cl((v-a)/(b-a));return v*v*(3-2*v)};
+const hex=h=>{h=h.trim().replace('#','');if(h.length<6)h=h.replace(/./g,'$&$&');return[0,2,4].map(i=>parseInt(h.substr(i,2),16))};
+const mix=(a,b,t)=>a.map((v,i)=>v+(b[i]-v)*t),rgb=(c,a=1)=>`rgba(${c[0]|0},${c[1]|0},${c[2]|0},${a})`;
+let W,H,Ys=1e9,Yc=1e9,tod=.78,yr=0,realm=-1,last=0,lastY=0,vel=0,flash=0,T={},stars=[],clouds=[],P=[],B=[];
+const L=[{b:.66,a:46,f:.006,p:1},{b:.78,a:34,f:.009,p:4},{b:.9,a:20,f:.013,p:2}],PIL=[34,58,24,66,40,52];
+const rf=(X,l)=>H*l.b+l.a*Math.sin(X*l.f+l.p)+l.a*.5*Math.sin(X*l.f*2.3+l.p*1.7);
+function tokens(){const g=n=>hex(getComputedStyle(root).getPropertyValue(n));T={s1:g('--sky1'),s2:g('--sky2'),m1:g('--m1'),m2:g('--m2'),m3:g('--m3'),ca:g('--castle')}}
+function marks(){const t=q=>document.querySelector(q).getBoundingClientRect().top+scrollY;Ys=t('#spellbook');Yc=t('#chronicle')}
+function layout(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+  stars=Array.from({length:70},()=>({x:rnd(0,W),y:rnd(0,H*.6),r:rnd(.5,1.5)}));
+  clouds=Array.from({length:6},()=>({x:rnd(0,W),y:rnd(.06,.4)*H,w:rnd(120,260),s:rnd(6,14)}));
+  tokens();marks()}
+function orb(X,Y,c,r,a){if(Y>H*.95)return;const g=x.createRadialGradient(X,Y,r*.3,X,Y,r*3);g.addColorStop(0,rgb(c,.5*a));g.addColorStop(1,rgb(c,0));x.fillStyle=g;x.fillRect(X-r*3,Y-r*3,r*6,r*6);x.fillStyle=rgb(c,a);x.beginPath();x.arc(X,Y,r,0,6.283);x.fill()}
+function ridge(l,c){x.fillStyle=rgb(c);x.beginPath();x.moveTo(0,H);for(let X=0;X<=W;X+=10)x.lineTo(X,rf(X,l));x.lineTo(W,H);x.fill()}
+function flame(X,Y,s,a,now,i){if(a<.03)return;x.globalCompositeOperation='lighter';
+  for(let k=0;k<3;k++){const f=.7+.3*Math.sin(now*.02+i*3+k*2),r=(16+k*7)*s*f,fy=Y-k*8*s,g=x.createRadialGradient(X,fy,0,X,fy,r);g.addColorStop(0,rgb([255,170,60],a*.85));g.addColorStop(1,rgb([255,60,0],0));x.fillStyle=g;x.fillRect(X-r,fy-r,r*2,r*2)}
+  x.globalCompositeOperation='source-over'}
+function castle(now,wr0,ru,s,cx){
+  const by=rf(cx,L[1])+6;
+  x.fillStyle=rgb(mix(mix(T.ca,[12,4,4],wr0),[40,38,38],ru));
+  x.fillRect(cx-62*s,by-50*s,134*s,50*s);
+  [[-62,30,90,.6],[-12,28,132,.95],[42,30,76,.45]].forEach(([dx,w,h,dm],i)=>{
+    const hh=h*(1-ru*dm*.6)*s,X=cx+dx*s,Y=by-hh;
+    x.fillRect(X,Y,w*s,hh);x.beginPath();
+    if(ru*dm<.25){x.moveTo(X-4*s,Y);x.lineTo(X+w*s/2,Y-26*s);x.lineTo(X+(w+4)*s,Y)}
+    else{x.moveTo(X,Y);x.lineTo(X+w*.3*s,Y-8*s);x.lineTo(X+w*.5*s,Y+3*s);x.lineTo(X+w*.8*s,Y-12*s);x.lineTo(X+w*s,Y)}
+    x.fill();
+    flame(X+w*s/2,Y,s,wr0*(1-ru)*.9+(dm>.8?ru*.25:0),now,i);
+  });
+  x.fillStyle=rgb(mix([212,169,71],[255,120,30],wr0),(1-ru)*(.7+.3*Math.sin(now*.01)));
+  x.fillRect(cx-4*s,by-80*s,8*s,13*s);
+}
+function frame(now){
+  const dt=reduce?0:cl((now-last)/1000||0,0,.05);last=now;
+  const sy=scrollY,wr0=sm(sy,Ys-H,Ys-.35*H),ru=sm(sy,Yc-H,Yc-.35*H),wr=wr0*(1-ru),rm=ru>.5?2:wr0>.5?1:0;
+  vel+=(Math.abs(sy-lastY)/(dt||1)-vel)*.1;lastY=sy;
+  // time speeds up the further you scroll, then slows once war begins
+  const pq=cl(sy/Math.max(1,Ys-.35*H)),rate=(1+16*pq*pq+Math.min(5,vel/600))*(1-.9*wr0);
+  tod=(tod+dt*.012*rate)%1;yr+=dt*.1*rate;
+  if(rm!==realm){realm=rm;root.dataset.realm=['peace','war','ruin'][rm];eb.textContent=['Age of Peace','Age of War','Age of Ruin'][rm];window.setRealm&&window.setRealm(rm)}
+  es.textContent='Year '+Math.floor(400+yr);
+  fx.style.opacity=1-.9*Math.max(wr0,ru);
+  const se=Math.sin(tod*6.2832),co=Math.cos(tod*6.2832),d=sm(se,-.1,.3),cs=cl(W/900,.55,1.2),cx0=W*.72;
+  let top=mix(T.s1,[90,150,225],d*.85),bot=mix(T.s2,[250,214,170],d*.85);
+  top=mix(mix(top,[38,8,10],wr0),[44,47,54],ru);bot=mix(mix(bot,[196,64,20],wr0),[120,108,94],ru);
+  const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,rgb(top));g.addColorStop(1,rgb(bot));x.fillStyle=g;x.fillRect(0,0,W,H);
+  const sa=(1-d)*(1-wr0)*(1-ru);
+  if(sa>.02){x.fillStyle='#fff';stars.forEach((st,i)=>{x.globalAlpha=sa*(.55+.45*Math.sin(now*.003+i));x.beginPath();x.arc(st.x,st.y,st.r,0,6.283);x.fill()});x.globalAlpha=1}
+  const oa=1-.85*Math.max(wr0,ru);
+  orb(W*(.5-.42*co),H*.62-H*.5*se,mix(mix([255,225,150],[255,70,40],wr0),[205,200,185],ru),40,oa);
+  orb(W*(.5+.42*co),H*.62+H*.5*se,[242,236,210],30,oa);
+  const cc=mix(mix([255,255,255],[34,14,12],wr0),[96,96,98],ru);x.fillStyle=rgb(cc,.15+.25*wr0+.1*ru);
+  clouds.forEach(c=>{c.x+=c.s*dt*(1+rate*2);if(c.x>W+c.w)c.x=-c.w;x.beginPath();x.ellipse(c.x,c.y,c.w,c.w*.1,0,0,6.283);x.fill();x.beginPath();x.ellipse(c.x+c.w*.4,c.y-c.w*.07,c.w*.6,c.w*.08,0,0,6.283);x.fill()});
+  const dk=c=>mix(mix(c,[24,8,8],wr0*.8),[62,60,58],ru*.7);
+  ridge(L[0],dk(T.m1));ridge(L[1],dk(T.m2));castle(now,wr0,ru,cs,cx0);ridge(L[2],dk(T.m3));
+  if(ru>.05){x.fillStyle=rgb(mix(dk(T.m3),[20,20,22],.5),ru);PIL.forEach((h,i)=>{const X=W*(.07+.16*i),Y=rf(X,L[2]),w=14*cs;x.fillRect(X,Y-h*cs,w,h*cs+4);x.beginPath();x.moveTo(X,Y-h*cs);x.lineTo(X+w*.4,Y-h*cs-8*cs);x.lineTo(X+w,Y-h*cs+2);x.fill()})}
+  if(wr0>.01){const f=x.createLinearGradient(0,H*.5,0,H);f.addColorStop(0,'rgba(255,90,20,0)');f.addColorStop(1,`rgba(255,90,20,${.5*wr})`);x.fillStyle=f;x.fillRect(0,H*.5,W,H*.5)}
+  if(ru>.01){const f=x.createLinearGradient(0,H*.55,0,H);f.addColorStop(0,'rgba(150,145,135,0)');f.addColorStop(1,`rgba(150,145,135,${.3*ru})`);x.fillStyle=f;x.fillRect(0,H*.55,W,H*.45)}
+  // spell bolts and arrows
+  if(wr>.05&&B.length<18&&Math.random()<wr*.25*dt*60){const a=rnd(.2,.7),v=rnd(500,900);B.push({x:rnd(-50,W),y:rnd(0,H*.45),vx:Math.cos(a)*v,vy:Math.sin(a)*v,c:Math.random()<.5?[255,150,50]:[160,130,255]})}
+  x.globalCompositeOperation='lighter';x.lineWidth=2;x.lineCap='round';
+  B=B.filter(b=>{b.x+=b.vx*dt;b.y+=b.vy*dt;const ok=b.x<W+60&&b.y<rf(b.x,L[1]);
+    if(!ok&&b.x>0&&b.x<W&&P.length<150)for(let k=0;k<4;k++)P.push({x:b.x,y:b.y,vx:rnd(-90,90),vy:-rnd(40,160),r:rnd(1,2.4),l:1,c:0});
+    x.strokeStyle=rgb(b.c,.9*wr);x.beginPath();x.moveTo(b.x,b.y);x.lineTo(b.x-b.vx*.07,b.y-b.vy*.07);x.stroke();return ok});
+  x.globalCompositeOperation='source-over';
+  const sp=(pr,f)=>{if(Math.random()<pr*dt*60&&P.length<160)f()};
+  sp(wr*.5,()=>P.push({x:rnd(0,W),y:H+5,vx:rnd(-20,20),vy:-rnd(60,200),r:rnd(1,2.6),l:1,c:0}));
+  sp(ru*.4,()=>P.push({x:rnd(0,W),y:-5,vx:rnd(-15,15),vy:rnd(20,60),r:rnd(1,2.2),l:1,c:1}));
+  sp(wr*.5+ru*.15,()=>P.push({x:cx0+rnd(-40,40)*cs,y:rf(cx0,L[1])-100*cs,vx:rnd(-8,8),vy:-rnd(25,45),r:rnd(8,16),l:1,c:2}));
+  P=P.filter(q=>{q.x+=q.vx*dt+Math.sin(now*.002+q.y*.01)*.3;q.y+=q.vy*dt;q.l-=dt*(q.c===1?.12:.3);if(q.c===2)q.r+=dt*6;
+    const a=cl(q.l);x.fillStyle=q.c===0?rgb([255,150,50],a):q.c===1?rgb([170,165,158],a*.6):rgb([40,34,34],a*.3);
+    x.globalCompositeOperation=q.c===0?'lighter':'source-over';x.beginPath();x.arc(q.x,q.y,q.r,0,6.283);x.fill();x.globalCompositeOperation='source-over';
+    return q.l>0&&q.y>-20&&q.y<H+20});
+  if(wr>.3&&Math.random()<.004*wr*dt*60)flash=.5;
+  if(flash>.01){x.fillStyle=`rgba(255,235,220,${flash})`;x.fillRect(0,0,W,H);flash*=Math.pow(.9,dt*60)}
+  if(!reduce)requestAnimationFrame(frame);
+}
+addEventListener('resize',()=>{layout();if(reduce)frame(performance.now())});
+addEventListener('load',()=>{marks();if(reduce)frame(performance.now())});
+document.addEventListener('toggle',marks,true);
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',tokens);
+layout();
+if(reduce){addEventListener('scroll',()=>frame(performance.now()),{passive:true});frame(performance.now())}else requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
